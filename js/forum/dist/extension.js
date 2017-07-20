@@ -59,7 +59,7 @@ System.register('czbix/exam/main', ['flarum/app', 'flarum/extend', 'flarum/compo
 		m('label',{for:'examTypeZhTw'},['正體中文']),
 // Future hook for generating questions according to user locale
 // Might not need as it is already taking the app.translator.locale.
-*/		m('p',{id:'qText'}, [app.translator.trans(EXTENSION_NAME+'.forum.sign_up.exam_question')+questText]),
+*/		m('pre',{id:'qText'}, [app.translator.trans(EXTENSION_NAME+'.forum.sign_up.exam_question')+questText]),
 		m('input', {class: 'FormControl', id:'examAnswer', type: 'text', placeholder: app.translator.trans(EXTENSION_NAME + '.forum.sign_up.exam_token'),
             value: examToken(), onchange: m.withAttr('value', examToken) }),
 		m('input', {id:'inviteCode',type: 'checkbox'}),

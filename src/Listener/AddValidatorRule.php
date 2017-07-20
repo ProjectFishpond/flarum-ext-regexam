@@ -41,7 +41,7 @@ class AddValidatorRule {
                   if (strlen($value) != 136 || !ctype_alnum($value))
                       $resp = "400";
                   else
-                      $resp = exec(__dir__.'/../../py/demo.py '.$value.' '.$this->settings->get('czbix-registration-exam.secret_key'));
+                      $resp = exec(__dir__.'/../../py/demo.py '.$value.' '.$this->settings->get('czbix-regexam.secret_key'));
 /*                  $resp = $client->request('GET', $verifyUrl, [
                     'query' => ['code' => $value]
                   ]);
