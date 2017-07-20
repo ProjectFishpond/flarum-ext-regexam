@@ -1,0 +1,34 @@
+{
+  "name": "czbix/flarum-ext-regexam",
+  "description": "Registration exam extension for flarum!",
+  "type": "flarum-extension",
+  "authors": [
+    {
+      "name": "CzBiX",
+      "email": "czbix@live.com"
+    },
+    {
+      "name": "Staph. aureus",
+      "email": "staph@aosc.io"
+    }
+  ],
+  "require": {
+    "flarum/core": "^0.1.0-beta.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Czbix\\Exam\\": "src/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Registration Exam",
+      "icon": {
+        "name": "question-circle-o",
+        "backgroundColor": "#aaa",
+        "color": "#fff"
+      }
+    }
+  }
+}
+

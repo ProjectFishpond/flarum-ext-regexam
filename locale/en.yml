@@ -1,0 +1,21 @@
+czbix-registration-exam:
+  admin:
+    exam_settings:
+        exam_url: Url of exam page.
+        verify_url: Callback to verify exam result.
+        secret_key: Secret key to identify and protect your answer.
+        title: Registration Exam Settings
+
+  forum:
+    sign_up:
+      exam_token: "Answer / Invitation code"
+      exam_page: Exam Page
+      exam_question: "Question: "
+      exam_prompt: "A short quiz is required to create an account."
+      invite_code: "This is an invitation code."
+
+validation:
+    custom:
+        exam_token:
+          required: "Oh, you are lack of exam."
+          exam_verify: "You didn't pass exam, so sad."

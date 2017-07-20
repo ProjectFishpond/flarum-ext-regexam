@@ -1,0 +1,17 @@
+czbix-registration-exam:
+  admin:
+    exam_settings:
+        exam_url: "答题页面。"
+        verify_url: "答题结果验证回调地址。"
+        title: "注册答题设置"
+  forum:
+    sign_up:
+      exam_token: "答案"
+      exam_page: "答题页"
+      exam_question: "題目"
+
+validation:
+    custom:
+        exam_token:
+          required: "吃惊，你居然想躲避考试？"
+          exam_verify: "胜败乃兵家常事，大侠请重新来过。"

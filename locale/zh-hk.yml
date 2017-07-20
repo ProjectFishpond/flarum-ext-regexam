@@ -1,0 +1,19 @@
+czbix-registration-exam:
+  admin:
+    exam_settings:
+        exam_url: "問題API"
+        verify_url: "答題結果驗證地址"
+        title: "註冊答題設置"
+  forum:
+    sign_up:
+      exam_token: "答案/邀請碼"
+      exam_page: "答題頁"
+      exam_question: "題目："
+      exam_prompt: "請回答以下問題以註冊帳號"
+      invite_code: "這是一個邀請碼"
+
+validation:
+    custom:
+        exam_token:
+          required: "驚，居然想躲避考試？"
+          exam_verify: "勝敗乃兵家常事，大俠請重新來過。"
