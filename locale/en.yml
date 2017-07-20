@@ -4,6 +4,7 @@ czbix-regexam:
         exam_url: Url of exam page.
         verify_url: Callback to verify exam result.
         secret_key: Secret key to identify and protect your answer.
+        question_series: Question series your users are getting.
         title: Registration Exam Settings
 
   forum:
