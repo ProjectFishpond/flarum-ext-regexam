@@ -13,7 +13,7 @@ System.register('czbix/exam/main', ['flarum/app', 'flarum/extend', 'flarum/compo
       SignUpModal = _flarumComponentsSignUpModal.default;
     }],
     execute: function () {
-      EXTENSION_NAME = 'czbix-registration-exam';
+      EXTENSION_NAME = 'czbix-regexam';
 
 	var questText = app.translator.trans(EXTENSION_NAME+'.forum.sign_up.exam_question');
 	var userID = "ffffffff";

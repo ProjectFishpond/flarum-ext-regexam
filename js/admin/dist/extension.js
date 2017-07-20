@@ -9,7 +9,7 @@ System.register('czbix/exam/components/ExamSettingsModal', ['flarum/components/S
       SettingsModal = _flarumComponentsSettingsModal.default;
     }],
     execute: function () {
-      EXTENSIONS_NAME = 'czbix-registration-exam';
+      EXTENSIONS_NAME = 'czbix-regexam';
 
       ExamSettingsModal = function (_SettingsModal) {
         babelHelpers.inherits(ExamSettingsModal, _SettingsModal);
@@ -66,8 +66,8 @@ System.register('czbix/exam/main', ['flarum/app', 'czbix/exam/components/ExamSet
     }],
     execute: function () {
 
-      app.initializers.add('czbix-registration-exam', function () {
-        app.extensionSettings['czbix-registration-exam'] = function () {
+      app.initializers.add('czbix-regexam', function () {
+        app.extensionSettings['czbix-regexam'] = function () {
           return app.modal.show(new ExamSettingsModal());
         };
       });
