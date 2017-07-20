@@ -1,4 +1,4 @@
-czbix-registration-exam:
+czbix-regexam:
   admin:
     exam_settings:
         exam_url: Url of exam page.
