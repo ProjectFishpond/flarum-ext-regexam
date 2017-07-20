@@ -44,6 +44,9 @@ System.register('czbix/exam/components/ExamSettingsModal', ['flarum/components/S
 		]),
 		m('div', { className: 'Form-group' }, [
 			m('label', [app.translator.trans(EXTENSIONS_NAME + '.admin.exam_settings.secret_key'), m('input', {className: 'FormControl',bidi: this.setting(EXTENSIONS_NAME + '.secret_key')})])
+		]),
+		m('div', { className: 'Form-group' }, [
+			m('label', [app.translator.trans(EXTENSIONS_NAME + '.admin.exam_settings.quest_num'), m('input', {className: 'FormControl',bidi: this.setting(EXTENSIONS_NAME + '.question_number')})])
 		])
 	   ];
            }

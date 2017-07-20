@@ -34,9 +34,8 @@ class AddValidatorRule {
 //        $client = new GuzzleHttp\Client();
 //        $verifyUrl = $this->settings->get('czbix-registration-exam.verify_url');
 
-        if ($event->type instanceof ExamValidator) {
-            $event->validator->addExtension(
-                'exam_verify',
+	if ($event->type instanceof ExamValidator) {
+		$event->validator->addExtension('exam_verify',
                 function($attribute, $value, $parameters) { //use ($client, $verifyUrl) {
                   if (strlen($value) != 136 || !ctype_alnum($value))
                       $resp = "400";

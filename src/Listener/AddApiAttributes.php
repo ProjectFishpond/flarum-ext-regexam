@@ -28,9 +28,10 @@ class AddApiAttributes {
 
     public function prepareApiAttributes(PrepareApiAttributes $event) {
         if ($event->isSerializer(ForumSerializer::class)) {
-            $event->attributes['examUrl'] = $this->settings->get('czbix-regexam.exam_url');
-            $event->attributes['validateUrl'] = $this->settings->get('czbix-regexam.verify_url');
+            $event->attributes['examUrl'] = $this->settings->get('czbix-registration-exam.exam_url');
+            $event->attributes['validateUrl'] = $this->settings->get('czbix-registration-exam.verify_url');
             $event->attributes['questionFile'] = $this->settings->get('czbix-regexam.question_series');
+            $event->attributes['questionNum'] = $this->settings->get('czbix-registration-exam.question_number');
         }
     }
 }

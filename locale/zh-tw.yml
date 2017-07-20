@@ -5,14 +5,17 @@ czbix-regexam:
         verify_url: "答題結果驗證地址"
         secret_key: "論壇問答安全碼"
         question_series: "問題系列"
+        quest_num: "問題數量"
         title: "註冊答題設置"
   forum:
     sign_up:
-      exam_token: "答案/邀請碼"
       exam_page: "答題頁"
-      exam_question: "題目："
+      exam_token: "邀請碼"
+      exam_answer: "答案"
+      exam_question: "題目"
       exam_prompt: "請回答以下問題以註冊帳號"
       invite_code: "這是一個邀請碼"
+      next_question: "下一題"
 
 validation:
     custom:

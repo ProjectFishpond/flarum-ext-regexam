@@ -9,14 +9,16 @@ czbix-regexam:
 
   forum:
     sign_up:
-      exam_token: "Answer / Invitation code"
+      exam_token: "Invitation code"
+      exam_answer: "Answer"
       exam_page: Exam Page
-      exam_question: "Question: "
+      exam_question: "Question "
       exam_prompt: "A short quiz is required to create an account."
-      invite_code: "This is an invitation code."
+      invite_code: "I have an invitation code."
+      next_question: "Next Question"
 
 validation:
     custom:
         exam_token:
-          required: "Oh, you are lack of exam."
+          required: "Oh, you need to complete the quiz."
           exam_verify: "You didn't pass exam, so sad."
