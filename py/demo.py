@@ -10,14 +10,17 @@ def main(arg):
         print(400)
         sys.exit(0)
     args = (arg[0][:8],arg[0][8:])
-#    secKey = 'Saccharomycescerevisiae'
     secKey = arg[1]
-    stdin = open(sys.argv[0].replace('demo.py','uid.log'),'r')
-    for item in stdin:
-        if item.strip() == args[0]:
-            print(401)
-            sys.exit(0)
-    stdin.close()
+    try:
+        stdin = open(sys.argv[0].replace('demo.py','uid.log'),'r')
+    except FileNotFoundError:
+        pass
+    else:
+        for item in stdin:
+            if item.strip() == args[0]:
+                print(401)
+                sys.exit(0)
+        stdin.close()
     if hmac.compare_digest(hmac.new(args[0].encode('UTF-8'),secKey.encode('UTF-8'),'sha512').hexdigest(),args[1]):
 #        print('Content-Type: text/plain\n')
 #        print('Success')
