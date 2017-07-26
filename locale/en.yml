@@ -5,15 +5,19 @@ czbix-regexam:
         verify_url: Callback to verify exam result.
         secret_key: Secret key to identify and protect your answer.
         question_series: Question series your users are getting.
+        question_num: Question number
         title: Registration Exam Settings
 
   forum:
     sign_up:
       exam_token: "Answer / Invitation code"
       exam_page: Exam Page
-      exam_question: "Question: "
+      exam_question: "Question "
       exam_prompt: "A short quiz is required to create an account."
       invite_code: "This is an invitation code."
+      next_question: "Next Question"
+      submit: "Submit"
+      failed: "Sorry, you did not pass the exam."
 
 validation:
     custom:

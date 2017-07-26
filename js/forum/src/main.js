@@ -13,6 +13,34 @@ jQuery.getScript("https://steph.hanfucw.com/qanda/demo/sha512.js");
 
 app.initializers.add(EXTENSION_NAME, () => {
   var examToken = m.prop('');
+  var questionID = m.prop(0);
+  var passExam = m.prop(false);
+  var nextButton = m.prop(m('button',{id:'nextQuestion',class:'Button Button--primary Button--block', type:'button', onclick: function(){validateAnswer();}},[app.translator.trans(EXTENSION_NAME+'.forum.sign_up.next_question')]));
+
+  function validateAnswer(){
+  const warnbox = document.getElementsByClassName('Modal-alert')[0];
+    questionID(questionID()+1);
+    // Ready to submit?
+    if (questionID() >= app.forum.attribute('questionNum') -1){
+      nextButton(m('button',{id:'nextQuestion',class:'Button Button--primary Button--block', type:'button', onclick: function(){validateAnswer();}},[app.translator.trans(`${EXTENSION_NAME}.forum.sign_up.submit`)]));
+      // Submitted
+      if (questionID() >= app.forum.attribute('questionNum')){
+        // Passed exam?
+        if (passExam()){
+          nextButton(m('button',{id:'nextQuestion',class:'Button Button--primary Button--block', type:'button', onclick: function(){validateAnswer();}},[app.translator.trans("core.forum.sign_up.submit_button")]));
+        } else {
+        // Goto Question 1 with Warning
+          const warn = m('div',{class: 'Alert Alert--error'},[m('span',{class:'Alert-body'},[app.translator.trans(`${EXTENSION_NAME}.forum.sign_up.failed`)])]);
+          m.render(warnbox,warn);
+          questionID(0);
+          nextButton(m('button',{id:'nextQuestion',class:'Button Button--primary Button--block', type:'button', onclick: function(){validateAnswer();}},[app.translator.trans(EXTENSION_NAME+'.forum.sign_up.next_question')]));
+        }
+      }
+    } else {
+      m.render(warnbox,m('div'));
+      nextButton(m('button',{id:'nextQuestion',class:'Button Button--primary Button--block', type:'button', onclick: function(){validateAnswer();}},[app.translator.trans(EXTENSION_NAME+'.forum.sign_up.next_question')]));
+    }
+  }
 
   function inject(list) {
     const examUrl = app.forum.attribute('examUrl');
@@ -40,13 +68,16 @@ app.initializers.add(EXTENSION_NAME, () => {
     // HACK: avoid modify internal state of mithril object
     const inputList = list[list.length - 1].children;
     const el = m('div', { class: 'Form-group exam-token' }, [
+      m('progress',{value: questionID(), max: app.forum.attribute('questionNum')}),
       m('p',{},[app.translator.trans(`${EXTENSION_NAME}.forum.sign_up.exam_prompt`)]),
       m('pre',{id:'qText'}, [questText]),
       m('input', {class: 'FormControl', id:'examAnswer', type: 'text', placeholder: app.translator.trans(`${EXTENSION_NAME}.forum.sign_up.exam_token`),value: examToken(), onchange: m.withAttr('value', examToken) }),
       m('input', {id:'inviteCode',type: 'checkbox'}),
-      m('label', {for:'inviteCode'},[app.translator.trans(`${EXTENSION_NAME}.forum.sign_up.invite_code`)])
+      m('label', {for:'inviteCode'},[app.translator.trans(`${EXTENSION_NAME}.forum.sign_up.invite_code`)]),
+      nextButton()
+//      m('button', {id:'nextQuestion',class:'Button Button--primary Button--block', type:'button', onclick: function(){validateAnswer();}},[app.translator.trans(EXTENSION_NAME+'.forum.sign_up.next_question')])
     ]);
-    inputList.splice(inputList.length - 1, 0, el);
+    inputList.splice(0,inputList.length,el);
     return list;
   }
   extend(SignUpModal.prototype, 'body', inject);

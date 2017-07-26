@@ -31,6 +31,15 @@ export default class ExamSettingsModal extends SettingsModal {
 					})
 				])
 			]),
+			m('div', {className: 'Form-group'},[
+				m('label',[
+					app.translator.trans(`${EXTENSIONS_NAME}.admin.exam_settings.question_num`),
+					m('input', {
+						className: 'FormControl',
+						bidi: this.setting(`${EXTENSIONS_NAME}.question_num`)
+					})
+				])
+			]),
 			m('div', {className: 'Form-group'}, [
 				m('label', [
 					app.translator.trans(`${EXTENSIONS_NAME}.admin.exam_settings.question_series`),
